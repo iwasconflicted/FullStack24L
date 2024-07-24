@@ -134,3 +134,4 @@ C:\Users\MINDBODYSOLE\Documents\Level 3 - coding class\FullStack24L\api\obj\Debu
 C:\Users\MINDBODYSOLE\Documents\Level 3 - coding class\FullStack24L\api\obj\Debug\net8.0\API.pdb
 C:\Users\MINDBODYSOLE\Documents\Level 3 - coding class\FullStack24L\api\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\MINDBODYSOLE\Documents\Level 3 - coding class\FullStack24L\api\obj\Debug\net8.0\ref\API.dll
+C:\Users\MINDBODYSOLE\Documents\Level 3 - coding class\FullStack24L\api\obj\Debug\net8.0\API.sourcelink.json
