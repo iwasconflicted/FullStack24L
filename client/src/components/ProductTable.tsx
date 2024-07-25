@@ -10,12 +10,12 @@ import {
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
   Tr,
   Text,
-  Badge
+  Badge,
+  useDisclosure
 } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { AddIcon, DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constant";
 import ProductSkeleton from "./ProductSkeleton";
+import ProductForm from "./ProductForm";
 
 interface Product {
   id: number;
@@ -33,6 +34,10 @@ interface Product {
 }
 
 const ProductTable = () => {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+    // useStates
   const [data, setData] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState("");
@@ -67,7 +72,7 @@ if(isLoading) return <ProductSkeleton/>
       <Box m={32} shadow={"md"} rounded={"md"}>
         <Flex justifyContent={"space-between"} px={"5"}>
           <Heading fontSize={25}>Product List</Heading>
-          <Button color="teal.300" leftIcon={<AddIcon />}>
+          <Button onClick={onOpen} color="teal.300" leftIcon={<AddIcon />}>
             Add Product
           </Button>
         </Flex>
@@ -116,7 +121,13 @@ if(isLoading) return <ProductSkeleton/>
         
           </Table>
         </TableContainer>
-        {data.length == 0 && <Heading p={5} textAlign={'center'} fontSize={24}>No Data</Heading>}
+        {data.length == 0 && (
+            <Heading p={5} textAlign={'center'} fontSize={24}>
+            No Data
+            </Heading>
+            )}
+        
+        {isOpen && <ProductForm fetchProduct={fetchData} isOpen={isOpen} onClose={onClose}/>}
 
       </Box>
     </>
